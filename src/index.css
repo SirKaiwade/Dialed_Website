@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
+  }
+  
+  html {
+    @apply transition-colors duration-500 ease-in-out;
+  }
+  
+  body {
+    @apply antialiased transition-colors duration-500 ease-in-out;
+  }
+  
+  /* Remove all blue default colors */
+  a {
+    @apply text-gray-900 dark:text-white no-underline;
+  }
+  
+  a:visited {
+    @apply text-gray-900 dark:text-white;
+  }
+  
+  a:hover {
+    @apply text-gray-900 dark:text-white;
+  }
+  
+  a:focus {
+    @apply text-gray-900 dark:text-white outline-none;
+  }
+  
+  /* Remove blue from focus rings */
+  *:focus {
+    @apply outline-none;
+  }
+  
+  *:focus-visible {
+    @apply outline-none ring-2 ring-gray-400 dark:ring-gray-600;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Glassmorphism utility */
+.glass {
+  @apply bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-gray-200 dark:border-white/10 transition-all duration-500;
+}
+
+.glass-strong {
+  @apply bg-white/20 dark:bg-white/10 backdrop-blur-2xl border border-gray-300 dark:border-white/20 transition-all duration-500;
+}
