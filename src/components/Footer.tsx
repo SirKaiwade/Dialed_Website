@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Twitter, Instagram, Mail } from 'lucide-react';
 
 export default function Footer() {
@@ -6,14 +7,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <img 
                 src="/screenshots/dialed_logo.png" 
                 alt="Dialed Logo" 
                 className="w-6 h-6 object-contain"
               />
               <span className="text-xl font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">Dialed</span>
-            </div>
+            </Link>
             <p className="text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500">
               Visual time management reimagined for modern professionals.
             </p>
@@ -70,18 +71,27 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-gray-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-600 dark:text-gray-400 font-mono text-sm transition-colors duration-500">
-            © 2024 Dialed. All rights reserved.
+            © 2025 Dialed. All rights reserved.
           </p>
           <div className="flex gap-6">
-            {['Privacy', 'Terms', 'Cookies'].map(item => (
-              <a
-                key={item}
-                href="#"
-                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
-              >
-                {item}
-              </a>
-            ))}
+            <Link
+              to="/support"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
+            >
+              Support
+            </Link>
+            <Link
+              to="/support#privacy"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/support#terms"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
+            >
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

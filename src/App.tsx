@@ -1,19 +1,22 @@
-import Hero from './components/Hero';
+import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import AppShowcase from './components/AppShowcase';
-import BentoGrid from './components/BentoGrid';
-import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import Home from './components/Home';
+import Support from './components/Support';
 
 function App() {
   return (
     <div className="min-h-screen bg-white dark:bg-[#000000] transition-colors duration-500 ease-in-out">
       <Navigation />
-      <Hero />
-      <AppShowcase />
-      <BentoGrid />
-      <FAQ />
-      <Footer />
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Home />
+            <Footer />
+          </>
+        } />
+        <Route path="/support" element={<Support />} />
+      </Routes>
     </div>
   );
 }

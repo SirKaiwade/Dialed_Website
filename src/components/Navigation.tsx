@@ -1,7 +1,14 @@
+import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
+  const location = useLocation();
   const scrollToSection = (id: string) => {
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home first
+      window.location.href = `/#${id}`;
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -9,6 +16,10 @@ export default function Navigation() {
   };
 
   const scrollToTop = () => {
+    if (location.pathname !== '/') {
+      window.location.href = '/';
+      return;
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -17,14 +28,14 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <img
               src="/screenshots/dialed_logo.png"
               alt="Dialed"
               className="h-10 w-auto"
             />
             <span className="text-xl font-bold text-gray-900 dark:text-white font-mono">Dialed</span>
-          </div>
+          </Link>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
@@ -52,6 +63,12 @@ export default function Navigation() {
             >
               FAQ
             </button>
+            <Link
+              to="/support"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
+            >
+              Support
+            </Link>
           </div>
 
           {/* Right side - App Store + Theme Toggle */}

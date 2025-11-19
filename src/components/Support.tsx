@@ -1,0 +1,527 @@
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Mail, HelpCircle, Shield, Send, CheckCircle, FileText } from 'lucide-react';
+import Navigation from './Navigation';
+import Footer from './Footer';
+
+export default function Support() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [location.hash]);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // In a real app, this would send to a backend
+    // For now, we'll use mailto as fallback
+    const mailtoLink = `mailto:ayhnassef@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+    window.location.href = mailtoLink;
+    setFormSubmitted(true);
+    setTimeout(() => setFormSubmitted(false), 5000);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-white dark:bg-[#000000] transition-colors duration-500 ease-in-out">
+      <Navigation />
+      
+      <main className="pt-32 pb-16 px-6">
+        <div className="max-w-4xl mx-auto space-y-16">
+          {/* Header */}
+          <div className="text-center animate-fade-in">
+            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white font-mono mb-4 transition-colors duration-500">
+              Support
+            </h1>
+            <p className="text-lg text-gray-600 dark:text-gray-400 font-mono transition-colors duration-500">
+              We're here to help you get the most out of Dialed
+            </p>
+          </div>
+
+          {/* Contact Section */}
+          <section className="animate-fade-in" style={{ animationDelay: '100ms' }}>
+            <div className="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/10 rounded-2xl p-8 transition-all duration-500">
+              <div className="flex items-center gap-3 mb-6">
+                <Mail className="w-6 h-6 text-gray-900 dark:text-white transition-colors duration-500" />
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">
+                  Contact Us
+                </h2>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <p className="text-gray-600 dark:text-gray-400 font-mono text-sm mb-2 transition-colors duration-500">
+                    Email us directly
+                  </p>
+                  <a 
+                    href="mailto:ayhnassef@gmail.com" 
+                    className="text-gray-900 dark:text-white hover:underline font-mono font-semibold transition-colors duration-500"
+                  >
+                    ayhnassef@gmail.com
+                  </a>
+                </div>
+                <div>
+                  <p className="text-gray-600 dark:text-gray-400 font-mono text-sm mb-2 transition-colors duration-500">
+                    Response time
+                  </p>
+                  <p className="text-gray-900 dark:text-white font-mono transition-colors duration-500">
+                    Typically within 24-48 hours
+                  </p>
+                </div>
+              </div>
+
+              {formSubmitted ? (
+                <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-4 flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <p className="text-green-800 dark:text-green-300 font-mono text-sm">
+                    Your email client should open. If not, please email us directly at ayhnassef@gmail.com
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-mono text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/20 rounded-xl text-gray-900 dark:text-white font-mono text-sm focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 transition-all duration-300"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-mono text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/20 rounded-xl text-gray-900 dark:text-white font-mono text-sm focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-mono text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                      Subject
+                    </label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/20 rounded-xl text-gray-900 dark:text-white font-mono text-sm focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 transition-all duration-300"
+                    >
+                      <option value="">Select a topic...</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Technical Issue">Technical Issue</option>
+                      <option value="Feature Request">Feature Request</option>
+                      <option value="Billing Question">Billing Question</option>
+                      <option value="Bug Report">Bug Report</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-mono text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={6}
+                      className="w-full px-4 py-3 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/20 rounded-xl text-gray-900 dark:text-white font-mono text-sm focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 transition-all duration-300 resize-none"
+                    />
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    className="w-full md:w-auto px-8 py-3 bg-white dark:bg-[#0a0a0a] border border-gray-300 dark:border-white/20 rounded-xl text-gray-900 dark:text-white font-mono font-semibold hover:bg-gray-50 dark:hover:bg-[#1a1a1a] transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    <Send className="w-4 h-4" />
+                    Send Message
+                  </button>
+                </form>
+              )}
+            </div>
+          </section>
+
+          {/* Troubleshooting Section */}
+          <section className="animate-fade-in" style={{ animationDelay: '200ms' }}>
+            <div className="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/10 rounded-2xl p-8 transition-all duration-500">
+              <div className="flex items-center gap-3 mb-6">
+                <HelpCircle className="w-6 h-6 text-gray-900 dark:text-white transition-colors duration-500" />
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">
+                  Troubleshooting
+                </h2>
+              </div>
+
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white font-mono mb-2 transition-colors duration-500">
+                    App won't launch or crashes
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500 ml-4 list-disc">
+                    <li>Ensure your device is running iOS 16 or later</li>
+                    <li>Force quit the app and restart it</li>
+                    <li>Restart your iPhone or iPad</li>
+                    <li>Check for app updates in the App Store</li>
+                    <li>If the issue persists, delete and reinstall the app (your data will sync back via iCloud)</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white font-mono mb-2 transition-colors duration-500">
+                    Events not syncing across devices
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500 ml-4 list-disc">
+                    <li>Verify iCloud is enabled in Settings → [Your Name] → iCloud</li>
+                    <li>Check that iCloud Drive is turned on</li>
+                    <li>Ensure you're signed into the same Apple ID on all devices</li>
+                    <li>Make sure you have an active internet connection</li>
+                    <li>Wait a few minutes for sync to complete (it can take up to 5 minutes)</li>
+                    <li>Try pulling down to refresh the app</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white font-mono mb-2 transition-colors duration-500">
+                    Premium features not unlocking
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500 ml-4 list-disc">
+                    <li>Check your App Store purchase history to confirm the purchase completed</li>
+                    <li>Restore purchases: Go to Settings within Dialed and tap "Restore Purchases"</li>
+                    <li>Ensure you're signed into the same Apple ID used for the purchase</li>
+                    <li>Wait a few moments and restart the app</li>
+                    <li>If issues persist, contact us with your purchase receipt</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white font-mono mb-2 transition-colors duration-500">
+                    Radial dial not displaying correctly
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500 ml-4 list-disc">
+                    <li>Try switching between light and dark mode</li>
+                    <li>Force quit and restart the app</li>
+                    <li>Check if you have any events scheduled (the dial may appear empty if no events exist)</li>
+                    <li>Ensure your device has sufficient storage space</li>
+                    <li>Update to the latest version of Dialed</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white font-mono mb-2 transition-colors duration-500">
+                    Can't drag and drop events
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500 ml-4 list-disc">
+                    <li>Make sure you're using a long press to initiate the drag</li>
+                    <li>Ensure the event isn't locked or read-only</li>
+                    <li>Check that you have edit permissions for the calendar</li>
+                    <li>Try restarting the app if the gesture isn't responding</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white font-mono mb-2 transition-colors duration-500">
+                    General performance issues
+                  </h3>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500 ml-4 list-disc">
+                    <li>Close other apps to free up memory</li>
+                    <li>Restart your device</li>
+                    <li>Check for iOS updates in Settings → General → Software Update</li>
+                    <li>Ensure you have at least 500MB of free storage</li>
+                    <li>Update Dialed to the latest version</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Privacy Policy Section */}
+          <section id="privacy" className="animate-fade-in" style={{ animationDelay: '300ms' }}>
+            <div className="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/10 rounded-2xl p-8 transition-all duration-500">
+              <div className="flex items-center gap-3 mb-6">
+                <Shield className="w-6 h-6 text-gray-900 dark:text-white transition-colors duration-500" />
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">
+                  Privacy Policy
+                </h2>
+              </div>
+
+              <div className="space-y-6 text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500">
+                <div>
+                  <p className="text-gray-900 dark:text-white font-semibold mb-2">Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Your Privacy Matters
+                  </h3>
+                  <p>
+                    At Dialed, we believe your calendar data is personal and private. We've built Dialed with privacy as a core principle, ensuring your information stays where it belongs—on your devices and in your iCloud account.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Data Collection
+                  </h3>
+                  <p>
+                    Dialed does not collect, store, or transmit your personal calendar data to our servers. All your events, schedules, and information remain on your device and are synced only through Apple's iCloud service, which you control entirely.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    What We Don't Collect
+                  </h3>
+                  <ul className="space-y-2 ml-4 list-disc">
+                    <li>Your calendar events or appointments</li>
+                    <li>Contact information from your calendar</li>
+                    <li>Location data</li>
+                    <li>Personal notes or descriptions</li>
+                    <li>Any identifiable information about your schedule</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Analytics & Crash Reports
+                  </h3>
+                  <p>
+                    Dialed may use anonymous analytics to understand app usage patterns and improve the user experience. This data is aggregated and cannot be used to identify you. Crash reports help us fix bugs and improve stability. You can opt out of analytics in your device's privacy settings.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    iCloud Sync
+                  </h3>
+                  <p>
+                    When you enable iCloud sync, your calendar data is encrypted and stored in your personal iCloud account. We do not have access to this data. Sync is controlled entirely by Apple's iCloud service and your device settings.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Third-Party Services
+                  </h3>
+                  <p>
+                    Dialed does not integrate with third-party analytics services, advertising networks, or data brokers. Your data is not shared with or sold to any third parties.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Children's Privacy
+                  </h3>
+                  <p>
+                    Dialed is not intended for children under the age of 13. We do not knowingly collect information from children. If you believe we have inadvertently collected information from a child, please contact us immediately.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Changes to This Policy
+                  </h3>
+                  <p>
+                    We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. You are advised to review this Privacy Policy periodically for any changes.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Contact Us
+                  </h3>
+                  <p>
+                    If you have any questions about this Privacy Policy, please contact us at{' '}
+                    <a href="mailto:ayhnassef@gmail.com" className="text-gray-900 dark:text-white hover:underline font-semibold">
+                      ayhnassef@gmail.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Terms of Service Section */}
+          <section id="terms" className="animate-fade-in" style={{ animationDelay: '400ms' }}>
+            <div className="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/10 rounded-2xl p-8 transition-all duration-500">
+              <div className="flex items-center gap-3 mb-6">
+                <FileText className="w-6 h-6 text-gray-900 dark:text-white transition-colors duration-500" />
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">
+                  Terms of Service
+                </h2>
+              </div>
+
+              <div className="space-y-6 text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500">
+                <div>
+                  <p className="text-gray-900 dark:text-white font-semibold mb-2">Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Acceptance of Terms
+                  </h3>
+                  <p>
+                    By downloading, installing, or using Dialed, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the app.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Description of Service
+                  </h3>
+                  <p>
+                    Dialed is a visual time management application that provides a radial dial interface for viewing and managing your calendar and schedule. The app is available for iOS devices and syncs data through Apple's iCloud service.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Use License
+                  </h3>
+                  <p>
+                    Dialed is provided free to download. Premium features are available through in-app purchase. You are granted a limited, non-exclusive, non-transferable license to use Dialed for personal, non-commercial purposes.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Premium Features
+                  </h3>
+                  <p>
+                    Premium features are available through a one-time in-app purchase. All sales are final. Premium features are tied to your Apple ID and cannot be transferred to another account.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    User Responsibilities
+                  </h3>
+                  <ul className="space-y-2 ml-4 list-disc">
+                    <li>You are responsible for maintaining the confidentiality of your device and Apple ID</li>
+                    <li>You agree not to use Dialed for any unlawful purpose</li>
+                    <li>You will not attempt to reverse engineer, decompile, or disassemble the app</li>
+                    <li>You will not use automated systems to access the app</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Data and Privacy
+                  </h3>
+                  <p>
+                    Your calendar data is stored locally on your device and synced through Apple's iCloud service. We do not collect, store, or access your personal calendar data. Please review our Privacy Policy for more information.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Intellectual Property
+                  </h3>
+                  <p>
+                    Dialed and all its content, features, and functionality are owned by us and are protected by copyright, trademark, and other intellectual property laws. You may not copy, modify, or distribute any part of Dialed without our express written permission.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Disclaimer of Warranties
+                  </h3>
+                  <p>
+                    Dialed is provided "as is" without warranties of any kind, either express or implied. We do not guarantee that the app will be uninterrupted, error-free, or secure. Your use of Dialed is at your own risk.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Limitation of Liability
+                  </h3>
+                  <p>
+                    To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of Dialed, including but not limited to loss of data or scheduling conflicts.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Changes to Terms
+                  </h3>
+                  <p>
+                    We reserve the right to modify these Terms of Service at any time. We will notify users of any material changes by updating the "Last Updated" date. Your continued use of Dialed after changes are posted constitutes acceptance of the new terms.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Termination
+                  </h3>
+                  <p>
+                    We reserve the right to terminate or suspend your access to Dialed at any time, with or without cause or notice, for any reason, including violation of these Terms of Service.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Governing Law
+                  </h3>
+                  <p>
+                    These Terms of Service shall be governed by and construed in accordance with the laws of the jurisdiction in which we operate, without regard to its conflict of law provisions.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    Contact Us
+                  </h3>
+                  <p>
+                    If you have any questions about these Terms of Service, please contact us at{' '}
+                    <a href="mailto:ayhnassef@gmail.com" className="text-gray-900 dark:text-white hover:underline font-semibold">
+                      ayhnassef@gmail.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+
