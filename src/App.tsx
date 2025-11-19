@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Support from './components/Support';
+import Privacy from './components/Privacy';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           </>
         } />
         <Route path="/support" element={<Support />} />
+        <Route path="/privacy" element={<Privacy />} />
       </Routes>
     </div>
   );

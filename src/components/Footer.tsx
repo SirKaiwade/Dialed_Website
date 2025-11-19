@@ -68,7 +68,7 @@ export default function Footer() {
               Support
             </Link>
             <Link
-              to="/support#privacy"
+              to="/privacy"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
             >
               Privacy Policy
