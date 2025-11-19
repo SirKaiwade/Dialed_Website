@@ -46,7 +46,7 @@ export default function Hero() {
               </span>
             </h1>
             <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-400 font-mono leading-relaxed transition-colors duration-500">
-              Schedule with precision. The most beautiful way to see and manage your time—schedule your day on a stunning radial dial.
+              Schedule with precision. The most beautiful way to see and manage your your day on a stunning radial dial.
             </p>
           </div>
 
@@ -78,16 +78,24 @@ export default function Hero() {
             </button>
           </div>
 
-          {/* Stats */}
+          {/* Stats / Value Props */}
           <div className="flex items-center gap-8 pt-4">
             <div className="space-y-1">
-              <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">4.8</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400 font-mono transition-colors duration-500">App Store Rating</div>
+              <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">
+                100%
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-400 font-mono transition-colors duration-500">
+                Visual clarity for your whole day
+              </div>
             </div>
             <div className="h-12 w-px bg-gray-300 dark:bg-white/20 transition-colors duration-500" />
             <div className="space-y-1">
-              <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">50K+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400 font-mono transition-colors duration-500">Active Users</div>
+              <div className="text-3xl font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">
+                7 days
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-400 font-mono transition-colors duration-500">
+                Full-access trial, one-time unlock
+              </div>
             </div>
           </div>
         </div>
