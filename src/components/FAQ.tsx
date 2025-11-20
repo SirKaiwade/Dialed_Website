@@ -13,11 +13,11 @@ const faqs: FAQItem[] = [
   },
   {
     question: "How does pricing work?",
-    answer: "Dialed is free to download and use! Premium features are available with a one-time lifetime purchase—no recurring subscription. Try all premium features free for 7 days, then unlock everything forever with a single payment."
+    answer: "Dialed is free to download and use! Premium features are available with a one-time lifetime purchase—no recurring subscription. Unlock everything forever with a single payment."
   },
   {
     question: "Does my data sync across devices?",
-    answer: "Yes, Dialed uses iCloud to seamlessly sync your schedule across all your Apple devices. Your data is encrypted and stays private—we never see or access your information."
+    answer: "No, Dialed stores all your data locally on your device. We do not use iCloud or any cloud sync services. All your events, schedules, and information remain on your device only."
   },
   {
     question: "Can I use Dialed offline?",
