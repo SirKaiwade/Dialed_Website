@@ -66,10 +66,19 @@ export default function Privacy() {
 
                 <div>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
-                    iCloud Sync
+                    Local Storage & Sync
                   </h3>
                   <p>
-                    When you enable iCloud sync, your calendar data is encrypted and stored in your personal iCloud account. We do not have access to this data. Sync is controlled entirely by Apple's iCloud service and your device settings.
+                    Dialed stores all your task data locally on your device. We do not use iCloud or any cloud sync services. All your events, schedules, and information remain on your device only.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-500">
+                    External Calendar Import
+                  </h3>
+                  <p>
+                    Dialed allows you to import calendar files (.ics) from external URLs that you provide. When you choose to import from a URL, the calendar file is temporarily downloaded to your device to parse and display the events. This data is processed locally and not stored on any external servers. The downloaded file is used only for importing events into the app and is not retained after import.
                   </p>
                 </div>
 
