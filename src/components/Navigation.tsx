@@ -74,7 +74,7 @@ export default function Navigation() {
           {/* Right side - App Store + Theme Toggle */}
           <div className="flex items-center gap-4">
             <a
-              href="https://apps.apple.com"
+              href="https://apps.apple.com/us/app/dialed-radial-day-planner/id6755455859"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden lg:block"

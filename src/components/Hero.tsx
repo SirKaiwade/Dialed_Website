@@ -53,7 +53,9 @@ export default function Hero() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 items-start">
             <a 
-              href="#" 
+              href="https://apps.apple.com/us/app/dialed-radial-day-planner/id6755455859"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-block hover:opacity-80 transition-opacity duration-300"
               aria-label="Download on the App Store"
             >
