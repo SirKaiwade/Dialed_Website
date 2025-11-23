@@ -18,7 +18,7 @@ export default function Team() {
     },
     {
       name: 'Thomas Weber',
-      image: '/screenshots/thomas.jpg',
+      image: '/screenshots/Thomas.png',
       role: 'Product Sales Manager',
       bio: 'Connecting users with Dialed and managing product sales strategies.'
     }
