@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Support from './components/Support';
 import Privacy from './components/Privacy';
 import Terms from './components/Terms';
+import Team from './components/Team';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/support" element={<Support />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/team" element={<Team />} />
       </Routes>
     </div>
   );

@@ -69,6 +69,12 @@ export default function Navigation() {
             >
               Support
             </Link>
+            <Link
+              to="/team"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
+            >
+              Team
+            </Link>
           </div>
 
           {/* Right side - App Store + Theme Toggle */}
