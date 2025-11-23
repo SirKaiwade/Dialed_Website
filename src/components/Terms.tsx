@@ -44,7 +44,7 @@ export default function Terms() {
                     2. How Dialed works (no account)
                   </h3>
                   <p>
-                    Dialed runs locally on your Apple device. If you enable them, Dialed uses iCloud and EventKit (Apple Calendar/Reminders) under your Apple ID. We do not operate Dialed servers to host your data. You are responsible for securing your device and Apple ID.
+                    Dialed runs locally on your Apple device. If you enable them, Dialed uses EventKit (Apple Calendar/Reminders) under your Apple ID. We do not operate Dialed servers to host your data. You are responsible for securing your device and Apple ID.
                   </p>
                 </div>
 
