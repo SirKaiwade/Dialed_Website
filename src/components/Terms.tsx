@@ -166,7 +166,7 @@ export default function Terms() {
                     <li><strong>Assignment.</strong> You may not assign these Terms; we may assign them in connection with a merger, acquisition, or asset transfer.</li>
                     <li><strong>Force majeure.</strong> We are not liable for delays/failures due to events beyond reasonable control.</li>
                     <li><strong>Entire agreement.</strong> These Terms and the Privacy Policy are the entire agreement.</li>
-                    <li><strong>Developer Information.</strong> For any questions, complaints, or claims with respect to the Licensed Application, please contact: Dialed, Email: <a href="mailto:ayhnassef@gmail.com" className="text-gray-900 dark:text-white hover:underline font-semibold">ayhnassef@gmail.com</a></li>
+                    <li><strong>Developer Information.</strong> For any questions, complaints, or claims with respect to the Licensed Application, please contact: Dialed, 310 Bloor St W, M5S1W4, Toronto, ON, Canada. Email: <a href="mailto:ayhnassef@gmail.com" className="text-gray-900 dark:text-white hover:underline font-semibold">ayhnassef@gmail.com</a></li>
                   </ul>
                 </div>
               </div>
