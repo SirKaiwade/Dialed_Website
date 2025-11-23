@@ -57,11 +57,20 @@ export default function Team() {
                     className="text-center animate-fade-in"
                     style={{ animationDelay: `${(index + 1) * 100}ms` }}
                   >
-                    <div className="mb-4">
+                    <div className={`mb-4 ${member.name === 'Jonah Bainbridge' ? 'overflow-hidden rounded-full w-32 h-32 mx-auto border-4 border-gray-200 dark:border-white/20' : ''}`}>
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-gray-200 dark:border-white/20 transition-all duration-500 hover:scale-105"
+                        className={`w-32 h-32 rounded-full mx-auto object-cover transition-all duration-500 hover:scale-105 ${
+                          member.name === 'Jonah Bainbridge' 
+                            ? 'scale-125' 
+                            : 'border-4 border-gray-200 dark:border-white/20'
+                        }`}
+                        style={
+                          member.name === 'Jonah Bainbridge'
+                            ? { objectPosition: 'center center' }
+                            : undefined
+                        }
                       />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white font-mono mb-2 transition-colors duration-500">
