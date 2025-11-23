@@ -5,16 +5,22 @@ import Footer from './Footer';
 export default function Team() {
   const teamMembers = [
     {
-      name: 'Adam',
+      name: 'Adam Nassef',
       image: '/screenshots/Adam.jpg',
-      role: 'Co-Founder & Developer',
-      bio: 'Passionate about building beautiful and intuitive user experiences.'
+      role: 'Founder & CEO',
+      bio: 'Leading Dialed with a vision to transform how people visualize and manage their time.'
     },
     {
-      name: 'Jonah',
+      name: 'Jonah Bainbridge',
       image: '/screenshots/Jonah.png',
-      role: 'Co-Founder & Developer',
-      bio: 'Focused on creating tools that help people manage their time more effectively.'
+      role: 'Product Data Analyst',
+      bio: 'Analyzing user behavior and product metrics to drive data-informed decisions.'
+    },
+    {
+      name: 'Thomas Weber',
+      image: '/screenshots/thomas.jpg',
+      role: 'Product Sales Manager',
+      bio: 'Connecting users with Dialed and managing product sales strategies.'
     }
   ];
 
@@ -44,7 +50,7 @@ export default function Team() {
                 </h2>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {teamMembers.map((member, index) => (
                   <div
                     key={member.name}
