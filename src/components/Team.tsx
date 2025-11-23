@@ -63,7 +63,7 @@ export default function Team() {
                         alt={member.name}
                         className={`w-32 h-32 rounded-full mx-auto object-cover transition-all duration-500 hover:scale-105 ${
                           member.name === 'Jonah Bainbridge' 
-                            ? 'scale-125' 
+                            ? 'scale-150' 
                             : 'border-4 border-gray-200 dark:border-white/20'
                         }`}
                         style={
