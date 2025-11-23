@@ -83,7 +83,7 @@ export default function Terms() {
                     6. Acceptable Use
                   </h3>
                   <p>
-                    You agree not to: violate laws or third-party rights; interfere with security or integrity; reverse engineer except as allowed by law; circumvent usage limits or license controls; misrepresent your affiliation; or use the Service to provide commercial/outsourced services without our consent. We may suspend or terminate access for violations.
+                    You agree not to: violate laws or third-party rights; interfere with security or integrity; reverse engineer except as allowed by law; circumvent usage limits or license controls; misrepresent your affiliation; or use the Service to provide commercial/outsourced services without our consent. You must comply with applicable third party terms of agreement when using the Service (e.g., if you have a wireless data service agreement, you must not be in violation of such agreement when using the Service). We may suspend or terminate access for violations.
                   </p>
                 </div>
 
@@ -92,7 +92,7 @@ export default function Terms() {
                     7. Intellectual Property
                   </h3>
                   <p>
-                    We and our licensors own the Service (software, UI, design, trademarks). We grant you a limited, revocable, non-transferable license to install/use Dialed on Apple devices you own or control for personal, non-commercial use, subject to these Terms and Apple's rules. Open-source components are licensed under their respective licenses (listed in-app).
+                    We and our licensors own the Service (software, UI, design, trademarks). We grant you a limited, revocable, non-transferable license to install/use Dialed on Apple devices you own or control for personal, non-commercial use, subject to these Terms and Apple's rules. Such Licensed Application may be accessed and used by other accounts associated with the purchaser via Family Sharing or volume purchasing. Open-source components are licensed under their respective licenses (listed in-app).
                   </p>
                 </div>
 
@@ -119,10 +119,11 @@ export default function Terms() {
                     10. Apple-Required Terms
                   </h3>
                   <ul className="space-y-2 ml-4 list-disc">
-                    <li>These Terms are between you and Dialed, not Apple.</li>
-                    <li>Apple is not responsible for maintenance or support.</li>
-                    <li>If any warranty applies, Apple's obligation is limited to refunding the purchase price (if any); Apple has no other warranty obligations.</li>
-                    <li>Dialed, not Apple, is responsible for product claims and IP claims.</li>
+                    <li>These Terms are between you and Dialed, not Apple. The EULA may not provide for usage rules for Licensed Applications that are in conflict with the Apple Media Services Terms and Conditions.</li>
+                    <li>Apple is not responsible for maintenance or support. We are solely responsible for providing any maintenance and support services with respect to the Licensed Application, as specified in these Terms, or as required under applicable law.</li>
+                    <li>If any warranty applies, Apple's obligation is limited to refunding the purchase price for the Licensed Application to you; Apple has no other warranty obligations. To the maximum extent permitted by applicable law, any other claims, losses, liabilities, damages, costs or expenses attributable to any failure to conform to any warranty will be our sole responsibility.</li>
+                    <li>Dialed, not Apple, is responsible for addressing any claims relating to the Licensed Application or your possession and/or use of that Licensed Application, including but not limited to: (i) product liability claims; (ii) any claim that the Licensed Application fails to conform to any applicable legal or regulatory requirement; and (iii) claims arising under consumer protection, privacy, or similar legislation.</li>
+                    <li>In the event of any third party claim that the Licensed Application or your possession and use of that Licensed Application infringes that third party's intellectual property rights, we, not Apple, will be solely responsible for the investigation, defense, settlement and discharge of any such intellectual property infringement claim.</li>
                     <li>You must comply with Apple's terms and applicable laws (including export/sanctions).</li>
                     <li>Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce them.</li>
                   </ul>
@@ -133,7 +134,7 @@ export default function Terms() {
                     11. Export & Sanctions Compliance
                   </h3>
                   <p>
-                    You must comply with applicable export control and sanctions laws. You may not use the Service if you are on a government-restricted list or in a restricted territory.
+                    You must comply with applicable export control and sanctions laws. You represent and warrant that (i) you are not located in a country that is subject to a U.S. Government embargo, or that has been designated by the U.S. Government as a "terrorist supporting" country; and (ii) you are not listed on any U.S. Government list of prohibited or restricted parties. You may not use the Service if you are on a government-restricted list or in a restricted territory.
                   </p>
                 </div>
 
@@ -165,7 +166,7 @@ export default function Terms() {
                     <li><strong>Assignment.</strong> You may not assign these Terms; we may assign them in connection with a merger, acquisition, or asset transfer.</li>
                     <li><strong>Force majeure.</strong> We are not liable for delays/failures due to events beyond reasonable control.</li>
                     <li><strong>Entire agreement.</strong> These Terms and the Privacy Policy are the entire agreement.</li>
-                    <li><strong>Contact.</strong> <a href="mailto:ayhnassef@gmail.com" className="text-gray-900 dark:text-white hover:underline font-semibold">ayhnassef@gmail.com</a></li>
+                    <li><strong>Developer Information.</strong> For any questions, complaints, or claims with respect to the Licensed Application, please contact: Dialed, Email: <a href="mailto:ayhnassef@gmail.com" className="text-gray-900 dark:text-white hover:underline font-semibold">ayhnassef@gmail.com</a></li>
                   </ul>
                 </div>
               </div>
