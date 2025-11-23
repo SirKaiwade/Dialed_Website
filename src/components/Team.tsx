@@ -8,7 +8,7 @@ export default function Team() {
       name: 'Adam Nassef',
       image: '/screenshots/Adam.jpg',
       role: 'Founder & CEO',
-      bio: 'Leading Dialed with a vision to transform how people visualize and manage their time.'
+      bio: 'Building Dialed to help people see and manage their day more effectively.'
     },
     {
       name: 'Jonah Bainbridge',
