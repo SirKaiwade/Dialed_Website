@@ -21,7 +21,7 @@ export default function Terms() {
 
               <div className="space-y-6 text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500">
                 <div>
-                  <p className="text-gray-900 dark:text-white font-semibold mb-2">Last updated: October 23, 2025</p>
+                  <p className="text-gray-900 dark:text-white font-semibold mb-2">Last updated: 23 November 2025</p>
                 </div>
 
                 <div>
