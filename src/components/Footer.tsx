@@ -74,7 +74,7 @@ export default function Footer() {
               Privacy Policy
             </Link>
             <Link
-              to="/support#terms"
+              to="/terms"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
             >
               Terms of Service
