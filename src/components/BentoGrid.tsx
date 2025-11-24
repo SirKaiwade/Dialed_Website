@@ -137,7 +137,7 @@ export default function BentoGrid() {
             <h3 className="text-lg font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">Free to Start</h3>
           </div>
           <p className="text-gray-600 dark:text-gray-400 font-mono text-sm transition-colors duration-500">
-            Premium unlock with one-time payment
+            7 day trial, then $34.99/year
           </p>
         </div>
       </div>

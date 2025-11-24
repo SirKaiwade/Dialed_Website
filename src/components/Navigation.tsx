@@ -1,10 +1,49 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
   const location = useLocation();
+  const [activeSection, setActiveSection] = useState<string>('');
+  
+  // Normalize pathname (remove trailing slash)
+  const pathname = location.pathname.replace(/\/$/, '') || '/';
+
+  useEffect(() => {
+    if (pathname !== '/') {
+      setActiveSection('');
+      return;
+    }
+
+    const handleScroll = () => {
+      const sections = ['showcase', 'features', 'faq'];
+      const scrollPosition = window.scrollY + 100; // Offset for fixed nav
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            return;
+          }
+        }
+      }
+
+      // If at top of page, clear active section
+      if (window.scrollY < 200) {
+        setActiveSection('');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on mount
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pathname]);
+
   const scrollToSection = (id: string) => {
-    if (location.pathname !== '/') {
+    if (pathname !== '/') {
       // If not on home page, navigate to home first
       window.location.href = `/#${id}`;
       return;
@@ -16,7 +55,7 @@ export default function Navigation() {
   };
 
   const scrollToTop = () => {
-    if (location.pathname !== '/') {
+    if (pathname !== '/') {
       window.location.href = '/';
       return;
     }
@@ -41,39 +80,63 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={scrollToTop}
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
+              className={`font-mono text-sm transition-colors duration-500 ${
+                pathname === '/' && activeSection === ''
+                  ? 'text-gray-900 dark:text-white'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+              }`}
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection('showcase')}
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
+              className={`font-mono text-sm transition-colors duration-500 ${
+                pathname === '/' && activeSection === 'showcase'
+                  ? 'text-gray-900 dark:text-white'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+              }`}
             >
               Showcase
             </button>
             <button
               onClick={() => scrollToSection('features')}
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
+              className={`font-mono text-sm transition-colors duration-500 ${
+                pathname === '/' && activeSection === 'features'
+                  ? 'text-gray-900 dark:text-white'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+              }`}
             >
               Features
             </button>
             <button
               onClick={() => scrollToSection('faq')}
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
+              className={`font-mono text-sm transition-colors duration-500 ${
+                pathname === '/' && activeSection === 'faq'
+                  ? 'text-gray-900 dark:text-white'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+              }`}
             >
               FAQ
             </button>
             <Link
-              to="/support"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
-            >
-              Support
-            </Link>
-            <Link
               to="/team"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-mono text-sm transition-colors duration-500"
+              className={`font-mono text-sm transition-colors duration-500 ${
+                pathname === '/team'
+                  ? '!text-gray-900 dark:!text-white'
+                  : '!text-gray-600 dark:!text-gray-400 hover:!text-gray-900 dark:hover:!text-white'
+              }`}
             >
               Team
+            </Link>
+            <Link
+              to="/support"
+              className={`font-mono text-sm transition-colors duration-500 ${
+                pathname === '/support'
+                  ? '!text-gray-900 dark:!text-white'
+                  : '!text-gray-600 dark:!text-gray-400 hover:!text-gray-900 dark:hover:!text-white'
+              }`}
+            >
+              Support
             </Link>
           </div>
 

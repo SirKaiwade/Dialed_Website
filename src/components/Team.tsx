@@ -29,7 +29,7 @@ export default function Team() {
       <Navigation />
       
       <main className="pt-32 pb-16 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white font-mono mb-4 transition-colors duration-500">
@@ -42,22 +42,22 @@ export default function Team() {
 
           {/* Team Section */}
           <section className="animate-fade-in" style={{ animationDelay: '100ms' }}>
-            <div className="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/10 rounded-2xl p-8 transition-all duration-500">
-              <div className="flex items-center gap-3 mb-8">
+            <div className="bg-gray-50 dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/10 rounded-2xl p-10 lg:p-12 transition-all duration-500">
+              <div className="flex items-center gap-3 mb-10">
                 <Users className="w-6 h-6 text-gray-900 dark:text-white transition-colors duration-500" />
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">
                   Meet the Team
                 </h2>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
                 {teamMembers.map((member, index) => (
                   <div
                     key={member.name}
-                    className="text-center animate-fade-in"
+                    className="text-center animate-fade-in px-2"
                     style={{ animationDelay: `${(index + 1) * 100}ms` }}
                   >
-                    <div className={`mb-4 ${member.name === 'Jonah Bainbridge' ? 'overflow-hidden rounded-full w-32 h-32 mx-auto border-4 border-gray-200 dark:border-white/20' : ''}`}>
+                    <div className={`mb-6 ${member.name === 'Jonah Bainbridge' ? 'overflow-hidden rounded-full w-32 h-32 mx-auto border-4 border-gray-200 dark:border-white/20' : ''}`}>
                       <img
                         src={member.image}
                         alt={member.name}
@@ -73,10 +73,10 @@ export default function Team() {
                         }
                       />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white font-mono mb-2 transition-colors duration-500">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white font-mono mb-3 transition-colors duration-500">
                       {member.name}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 font-mono text-sm mb-3 transition-colors duration-500">
+                    <p className="text-gray-600 dark:text-gray-400 font-mono text-sm mb-4 transition-colors duration-500">
                       {member.role}
                     </p>
                     <p className="text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500">
