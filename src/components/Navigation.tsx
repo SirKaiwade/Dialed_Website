@@ -118,7 +118,8 @@ export default function Navigation() {
             >
               FAQ
             </button>
-            <Link
+            {/* Team link hidden - uncomment to show */}
+            {/* <Link
               to="/team"
               className={`font-mono text-sm transition-colors duration-500 ${
                 pathname === '/team'
@@ -127,7 +128,7 @@ export default function Navigation() {
               }`}
             >
               Team
-            </Link>
+            </Link> */}
             <Link
               to="/support"
               className={`font-mono text-sm transition-colors duration-500 ${
