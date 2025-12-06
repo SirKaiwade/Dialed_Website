@@ -29,7 +29,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "How do I reschedule tasks?",
-    answer: "Simply drag and drop time segments around the dial to reschedule. Dialed makes rescheduling intuitive with haptic feedback and smooth animations."
+    answer: "Drag and drop functionality is coming soon! This feature will allow you to reschedule tasks by dragging time segments around the dial with intuitive haptic feedback and smooth animations."
   },
   {
     question: "Are widgets coming soon?",

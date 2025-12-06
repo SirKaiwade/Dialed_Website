@@ -17,6 +17,7 @@ export default function BentoGrid() {
               <Move className="w-5 h-5 text-white dark:text-gray-900 transition-colors duration-500" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 dark:text-white font-mono transition-colors duration-500">Drag & Drop</h3>
+            <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-mono rounded-full">Coming Soon</span>
           </div>
           <p className="text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500">
             Reschedule tasks by dragging segments around the dial.
