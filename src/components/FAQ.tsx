@@ -29,7 +29,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "How do I reschedule tasks?",
-    answer: "Drag and drop functionality is coming soon! This feature will allow you to reschedule tasks by dragging time segments around the dial with intuitive haptic feedback and smooth animations."
+    answer: "You can reschedule tasks by dragging time segments around the dial. Simply tap and hold on a time segment, then drag it to your desired time slot. The feature includes intuitive haptic feedback and smooth animations for a seamless experience."
   },
   {
     question: "Are widgets coming soon?",

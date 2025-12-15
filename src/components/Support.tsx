@@ -247,9 +247,13 @@ export default function Support() {
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white font-mono mb-2 transition-colors duration-500">
                     Drag and drop events
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500">
-                    Drag and drop functionality is coming soon! This feature will allow you to reschedule events by dragging time segments around the dial. Stay tuned for updates.
-                  </p>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-400 font-mono text-sm leading-relaxed transition-colors duration-500 ml-4 list-disc">
+                    <li>Tap and hold on a time segment to start dragging</li>
+                    <li>Drag the segment to your desired time slot on the dial</li>
+                    <li>Release to drop the event at the new time</li>
+                    <li>You'll feel haptic feedback during the drag operation</li>
+                    <li>If you're having trouble, ensure you're using iOS 16 or later</li>
+                  </ul>
                 </div>
 
                 <div>
